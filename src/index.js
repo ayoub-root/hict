@@ -1,20 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import 'index.css'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
-import Header from "components/Header/Header";
-import Footer from "components/Footer/Footer";
-import Components from "views/Components/Components.js";
+import Header from "components/comps/Header";
+import Footer from "components/comps/Footer";
+import Slide from "components/comps/slide";
+import Login from "components/comps/login";
+import Register from "components/comps/register";
+import Profile from "components/comps/profile";
 
-var hist = createBrowserHistory();
 ReactDOM.render(
-     <Router history={hist}>
-    <Switch>
+    <div>
 
-      <Route path="/" component={Components} />
-    </Switch>
-  </Router>,
+        <Header/>
+        <Slide/>
+        <Login/>
+        <Register/>
+        <Profile/>
+
+
+ <Footer />
+    </div>
+    ,
 
 
     document.getElementById('root')
