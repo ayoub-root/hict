@@ -26,7 +26,7 @@ import IconButton from "@material-ui/core/IconButton/IconButton";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+export default function Register(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
@@ -48,7 +48,7 @@ export default function LoginPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} onSubmit={e => this.props.handle_signup(e, this.state)}>
                   <CardHeader color="info" className={classes.cardHeader} style={{
                     backgroundImage:`url(`+require("../../images/s2.jpg")+`)`, backgroundSize:'cover'}}>
                     <h3 style={{color:"white"}} >Register</h3>
@@ -125,9 +125,9 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <input type="submit" color="success" size="lg"  >
+                    <Button type="submit"  color="success" size="lg">
                       Register
-                    </input>
+                    </Button>
                   </CardFooter>
                 </form>
               </Card>
