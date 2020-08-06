@@ -25,14 +25,22 @@ import logo from "../../statics/logo.png";
 import IconButton from "@material-ui/core/IconButton/IconButton";
 
 const useStyles = makeStyles(styles);
-
-export default function Register(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+class RegisterForm extends React.Component {
+  state = {
+    email: '',
+    password: ''
+  };
+
+
+  render(){
+
+
   return (
     <div>
 
@@ -138,4 +146,8 @@ export default function Register(props) {
       </div>
     </div>
   );
-}
+}}
+export default RegisterForm;
+RegisterForm.propTypes = {
+  handle_login: PropTypes.func.isRequired
+};
