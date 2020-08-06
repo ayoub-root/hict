@@ -30,7 +30,7 @@ const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
+
 class RegisterForm extends React.Component {
   state = {
     email: '',
@@ -148,6 +148,3 @@ class RegisterForm extends React.Component {
   );
 }}
 export default RegisterForm;
-RegisterForm.propTypes = {
-  handle_login: PropTypes.func.isRequired
-};
