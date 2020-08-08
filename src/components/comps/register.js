@@ -24,23 +24,19 @@ import image from "assets/img/bg7.jpg";
 import logo from "../../statics/logo.png";
 import IconButton from "@material-ui/core/IconButton/IconButton";
 
-const useStyles = makeStyles(styles);
-const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+
+function Submitform(event) {
+      alert('hello');
+  }
+export default function Register(props) {
+   const useStyles = makeStyles(styles);
+  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-
-class RegisterForm extends React.Component {
-  state = {
-    email: '',
-    password: ''
-  };
-
-
-  render(){
-
-
+  const { ...rest } = props;
   return (
     <div>
 
@@ -56,7 +52,7 @@ class RegisterForm extends React.Component {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form} onSubmit={e => this.props.handle_signup(e, this.state)}>
+                <form className={classes.form} onSubmit={Submitform}>
                   <CardHeader color="info" className={classes.cardHeader} style={{
                     backgroundImage:`url(`+require("../../images/s2.jpg")+`)`, backgroundSize:'cover'}}>
                     <h3 style={{color:"white"}} >Register</h3>
@@ -65,42 +61,10 @@ class RegisterForm extends React.Component {
 
                     </div>
                   </CardHeader>
-                  <p  className={classes.divider} >Register Form </p>
+                  <p  className={classes.divider} >Register </p>
                   <CardBody>
 
                     <CustomInput
-                      labelText="Firstname..."
-                      id="firstname"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-
-                         <CustomInput
-                      labelText="Lastname..."
-                      id="lastname"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-
-                         <CustomInput
                       labelText="Email..."
                       id="email"
                       formControlProps={{
@@ -108,6 +72,7 @@ class RegisterForm extends React.Component {
                       }}
                       inputProps={{
                         type: "email",
+                          required:'true',
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -117,7 +82,23 @@ class RegisterForm extends React.Component {
                     />
                     <CustomInput
                       labelText="Password"
-                      id="pass"
+                      id="password1"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "password",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                               <Email className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        ),
+                        autoComplete: "off"
+                      }}
+                    />
+                     <CustomInput
+                      labelText="Confirm Password"
+                      id="password2"
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -133,7 +114,7 @@ class RegisterForm extends React.Component {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button type="submit"  color="success" size="lg">
+                    <Button type="submit" color="success" size="lg">
                       Register
                     </Button>
                   </CardFooter>
@@ -146,5 +127,4 @@ class RegisterForm extends React.Component {
       </div>
     </div>
   );
-}}
-export default RegisterForm;
+}

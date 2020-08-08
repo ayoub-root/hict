@@ -48,16 +48,16 @@ export default function LoginPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} onSubmit={e => this.props.handle_login(e, this.state)}>
                   <CardHeader color="info" className={classes.cardHeader} style={{
                     backgroundImage:`url(`+require("../../images/s2.jpg")+`)`, backgroundSize:'cover'}}>
-                    <h3 style={{color:"white"}} >Login</h3>
+
                      <img src={logo} width={60} height={60}/>
                     <div className={classes.socialLine}>
-
+    <h3 style={{color:"white"}} >Login</h3>
                     </div>
                   </CardHeader>
-                  <p  className={classes.divider} >login </p>
+
                   <CardBody>
 
                     <CustomInput
@@ -93,10 +93,17 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button  color="success" size="lg">
+                    <Button type="submit" color="success" size="sm" fullWidth={true  }>
+
                       Login
                     </Button>
+
                   </CardFooter>
+                  <CardFooter className={classes.cardFooter}>
+                    <a href="" style={{float:'left'}}>Forget password ?</a>
+                    <div style={{width:'15px'}}> </div>
+                    <a href="" style={{float:'right'}}>create new account </a>
+</CardFooter>
                 </form>
               </Card>
             </GridItem>
